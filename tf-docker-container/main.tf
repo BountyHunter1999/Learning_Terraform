@@ -7,14 +7,13 @@ terraform {
    }
 }
 
-provider "docker" {
-}
+provider "docker" {}
 
 resource "docker_image" "nginx" {
     name = "nginx:latest"
     keep_locally = false
 }
-
+# resource_type name
 resource "docker_container" "nginx" {
   image = docker_image.nginx.latest
   name = "tutorial"
